@@ -34,7 +34,7 @@ public class RolesController {
                     deleteRol();
                     break;
                 case 4:
-                    return; // Salir al menú principal
+                    return; 
                 default:
                     JOptionPane.showMessageDialog(null, "Opción no válida.");
             }
@@ -45,7 +45,7 @@ public class RolesController {
         String name = JOptionPane.showInputDialog("Ingrese el nombre del rol:");
         if (name != null && !name.trim().isEmpty()) {
             Roles role = new Roles(name);
-            createRolesUseCase.execute(role); // Llama al método que usa RolesService
+            createRolesUseCase.execute(role); 
             JOptionPane.showMessageDialog(null, "Rol añadido exitosamente.");
         } else {
             JOptionPane.showMessageDialog(null, "Nombre de rol no válido.");
