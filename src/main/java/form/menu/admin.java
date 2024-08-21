@@ -4,13 +4,6 @@
  * and open the template in the editor.
  */
 
-<<<<<<< HEAD
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-=======
 /**
  *
  * @author aula9
@@ -31,7 +24,7 @@ public class admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        añadirrol = new javax.swing.JButton();
+        aï¿½adirrol = new javax.swing.JButton();
         editarrol = new javax.swing.JButton();
         mostrarrol = new javax.swing.JButton();
         eliminarrol = new javax.swing.JButton();
@@ -41,7 +34,7 @@ public class admin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        añadirrol.setText("Añadir Rol");
+        aï¿½adirrol.setText("Aï¿½adir Rol");
 
         editarrol.setText("Editar Rol");
 
@@ -73,7 +66,7 @@ public class admin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(añadirrol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(aï¿½adirrol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(mostrarrol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -96,7 +89,7 @@ public class admin extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(añadirrol))
+                        .addComponent(aï¿½adirrol))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton1)
@@ -152,7 +145,7 @@ public class admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton añadirrol;
+    private javax.swing.JButton aï¿½adirrol;
     private javax.swing.JButton editarrol;
     private javax.swing.JButton eliminarrol;
     private javax.swing.JButton jButton1;
@@ -160,7 +153,6 @@ public class admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton mostrarrol;
     // End of variables declaration//GEN-END:variables
->>>>>>> 3338819e932a300346263dc6ad6ef0203f706191
 
 /**
  *

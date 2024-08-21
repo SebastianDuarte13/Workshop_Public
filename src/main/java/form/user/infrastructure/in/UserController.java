@@ -2,7 +2,6 @@ package form.user.infrastructure.in;
 
 import javax.swing.JOptionPane;
 
-import form.roles.domain.entity.Roles;
 import form.user.application.CreateUserUseCase;
 import form.user.domain.entity.User;
 import form.user.domain.service.UserService;
@@ -110,7 +109,7 @@ public class UserController {
         String idStr = JOptionPane.showInputDialog("Ingrese el ID del usuario a eliminar:");
         try {
             int id = Integer.parseInt(idStr);
-            userService.DeleteUser(id); // Asegúrate de que el método DeleteUser esté definido en UserService
+            userService.DeleteUser(id);
             JOptionPane.showMessageDialog(null, "Usuario eliminado exitosamente.");
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "ID no válido.");
