@@ -8,6 +8,34 @@
  *
  * @author aula9
  */
+package form.menu;
+
+import javax.swing.JOptionPane;
+
+//IMPORTACIONES DE ROLES
+import form.roles.application.CreateRolesUseCase;
+import form.roles.domain.service.RolesService;
+import form.roles.infrastructure.in.RolesController;
+import form.roles.infrastructure.out.RolesRepository;
+
+//IMPORTACIONES DE CATEGORIA
+import form.category.application.CreateCategoryUseCase;
+import form.category.infrastructure.in.CategoryController;
+import form.category.infrastructure.out.CategoryRepository;
+import form.category.domain.service.CategoryService;
+
+//IMPORTACIONES DE USER ROLL
+import form.userrol.application.CreateUserRolUseCase;
+import form.userrol.domain.service.UserRolService;
+import form.userrol.infrastructure.in.UserRolController;
+import form.userrol.infrastructure.out.UserRolRepository;
+
+//IMPORTACIONES DE USUARIOS
+import form.user.application.CreateUserUseCase;
+import form.user.domain.service.UserService;
+import form.user.infrastructure.in.UserController;
+import form.user.infrastructure.out.UserRepository;
+
 public class Admin extends javax.swing.JFrame {
 
     /**
@@ -28,97 +56,169 @@ public class Admin extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        agregarrol = new javax.swing.JButton();
-        editarrol = new javax.swing.JButton();
-        mostrarrol = new javax.swing.JButton();
-        eliminarrol = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        roles = new javax.swing.JButton();
+        users = new javax.swing.JButton();
+        category_catalog = new javax.swing.JButton();
+        surveys = new javax.swing.JButton();
+        user_roles = new javax.swing.JButton();
+        chapter = new javax.swing.JButton();
+        questions = new javax.swing.JButton();
+        response_options = new javax.swing.JButton();
+        subresponse_options = new javax.swing.JButton();
+        response_question = new javax.swing.JButton();
+        back = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 51));
-        jLabel2.setText("MENU ADMINISTRATIVO");
+        jLabel2.setText("ADMIN MENU");
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        jLabel1.setText("Seleccione una opcion:");
+        jLabel1.setText("Select an option");
 
-        agregarrol.setText("Añadir Rol");
-
-        editarrol.setText("Editar Rol");
-
-        mostrarrol.setText("Mostrar Rol");
-        mostrarrol.addActionListener(new java.awt.event.ActionListener() {
+        roles.setText("Roles");
+        roles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mostrarrolActionPerformed(evt);
+                rolesActionPerformed(evt);
             }
         });
 
-        eliminarrol.setText("Eliminar Rol");
-
-        jButton1.setForeground(new java.awt.Color(255, 51, 51));
-        jButton1.setText("X");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        users.setText("Users");
+        users.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                usersActionPerformed(evt);
             }
         });
+
+        category_catalog.setText("Category Catalog");
+        category_catalog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                category_catalogActionPerformed(evt);
+            }
+        });
+
+        surveys.setText("Surveys");
+
+        user_roles.setText("User Roles");
+        user_roles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                user_rolesActionPerformed(evt);
+            }
+        });
+
+        chapter.setText("Chapter");
+        chapter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chapterActionPerformed(evt);
+            }
+        });
+
+        questions.setText("Questions");
+
+        response_options.setText("Response Options");
+
+        subresponse_options.setText("Subresponse Options");
+
+        response_question.setText("Response Questions");
+
+        back.setText("Back (Login)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(eliminarrol, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(editarrol, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(agregarrol, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(mostrarrol, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)))
-                        .addGap(0, 10, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(surveys, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(category_catalog, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                .addComponent(users, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(roles, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(chapter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(questions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(response_options, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(subresponse_options, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(user_roles, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(response_question, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                        .addComponent(back, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(agregarrol)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editarrol)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(roles)
+                    .addComponent(chapter))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mostrarrol)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(users)
+                    .addComponent(questions))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(eliminarrol)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(category_catalog)
+                    .addComponent(response_options))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(surveys)
+                    .addComponent(subresponse_options))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(user_roles)
+                    .addComponent(response_question))
+                .addGap(32, 32, 32)
+                .addComponent(back)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mostrarrolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarrolActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mostrarrolActionPerformed
+    private void category_catalogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_category_catalogActionPerformed
+        CategoryRepository categoryRepository = new CategoryRepository();
+        CreateCategoryUseCase createCategoryUseCase = new CreateCategoryUseCase(categoryRepository);
+        CategoryController categoryController = new CategoryController(createCategoryUseCase, categoryRepository);
+        categoryController.tabla_category();
+    }//GEN-LAST:event_category_catalogActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void chapterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chapterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_chapterActionPerformed
+
+    private void rolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolesActionPerformed
+        RolesService rolesService = new RolesRepository();
+        CreateRolesUseCase createRolesUseCase = new CreateRolesUseCase(rolesService);
+        RolesController rolesController = new RolesController(createRolesUseCase, rolesService);
+        rolesController.tabla_roles();
+    }//GEN-LAST:event_rolesActionPerformed
+
+    private void user_rolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_rolesActionPerformed
+        UserRolService userRolService = new UserRolRepository();
+        CreateUserRolUseCase createUserRolUseCase = new CreateUserRolUseCase(userRolService);
+        UserRolController userRolController = new UserRolController(createUserRolUseCase, null);
+        userRolController.tabla_userrol();
+    }//GEN-LAST:event_user_rolesActionPerformed
+
+    private void usersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersActionPerformed
+        UserService userService = new UserRepository();
+        CreateUserUseCase createUserUseCase = new CreateUserUseCase(userService);
+        UserController userController = new UserController(createUserUseCase, userService);
+        userController.tabla_user();  
+    }//GEN-LAST:event_usersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,12 +256,18 @@ public class Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton agregarrol;
-    private javax.swing.JButton editarrol;
-    private javax.swing.JButton eliminarrol;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton back;
+    private javax.swing.JButton category_catalog;
+    private javax.swing.JButton chapter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton mostrarrol;
+    private javax.swing.JButton questions;
+    private javax.swing.JButton response_options;
+    private javax.swing.JButton response_question;
+    private javax.swing.JButton roles;
+    private javax.swing.JButton subresponse_options;
+    private javax.swing.JButton surveys;
+    private javax.swing.JButton user_roles;
+    private javax.swing.JButton users;
     // End of variables declaration//GEN-END:variables
 }

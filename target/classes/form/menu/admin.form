@@ -33,7 +33,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="añadirrol" max="32767" attributes="0"/>
+                          <Component id="agregarrol" max="32767" attributes="0"/>
                           <Component id="mostrarrol" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -64,7 +64,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="añadirrol" min="-2" max="-2" attributes="0"/>
+                      <Component id="agregarrol" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -84,7 +84,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="a&#xf1;adirrol">
+    <Component class="javax.swing.JButton" name="agregarrol">
       <Properties>
         <Property name="text" type="java.lang.String" value="A&#xf1;adir Rol"/>
       </Properties>
