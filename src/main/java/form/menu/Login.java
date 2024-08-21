@@ -4,6 +4,7 @@
  */
 package form.menu;
 
+import form.menu.Admin;
 /**
  *
  * @author camper
@@ -29,7 +30,6 @@ public class Login extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         passwordingresar = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -40,8 +40,8 @@ public class Login extends javax.swing.JFrame {
         passwordregister = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
         confirmpasswordregister = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        confirmariniciosesion = new javax.swing.JButton();
+        confirmarregistro = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -55,9 +55,6 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 0, 51));
         jLabel2.setText("REGISTRARSE");
 
-        jButton1.setForeground(new java.awt.Color(255, 0, 51));
-        jButton1.setText("X");
-
         jLabel3.setText("Contraseña");
 
         jLabel4.setText("Usuario");
@@ -68,11 +65,21 @@ public class Login extends javax.swing.JFrame {
 
         jLabel7.setText("Repetir Contraseña");
 
-        jButton2.setBackground(new java.awt.Color(255, 204, 204));
-        jButton2.setText("Iniciar Sesion");
+        confirmariniciosesion.setBackground(new java.awt.Color(255, 204, 204));
+        confirmariniciosesion.setText("Iniciar Sesion");
+        confirmariniciosesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmariniciosesionActionPerformed(evt);
+            }
+        });
 
-        jButton3.setBackground(new java.awt.Color(255, 204, 204));
-        jButton3.setText("Registrarme");
+        confirmarregistro.setBackground(new java.awt.Color(255, 204, 204));
+        confirmarregistro.setText("Registrarme");
+        confirmarregistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmarregistroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,38 +100,30 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jLabel1)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
-                        .addComponent(jButton2)))
+                        .addComponent(confirmariniciosesion)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(jLabel5)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(37, 37, 37)
-                        .addComponent(jButton1))
+                    .addComponent(jLabel2)
                     .addComponent(jLabel6)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(confirmpasswordregister, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                         .addComponent(passwordregister, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(usuarioregister, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap())
+                .addGap(67, 67, 67))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(confirmarregistro)
                 .addGap(102, 102, 102))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1)))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -146,16 +145,58 @@ public class Login extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jButton2))
+                    .addComponent(confirmariniciosesion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(confirmpasswordregister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jButton3)
+                .addComponent(confirmarregistro)
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void confirmarregistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarregistroActionPerformed
+        // Capturar los datos del usuario
+        String usuario = usuarioregister.getText();
+        String password = new String(passwordregister.getPassword());
+        String confirmPassword = new String(confirmpasswordregister.getPassword());
+
+        // Validar que las contraseñas coincidan
+        if (!password.equals(confirmPassword)) {
+            JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden");
+            return;
+        }
+
+        // Conectar con la base de datos
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydatabase", "myuser", "mypassword")) {
+            // Crear la tabla si no existe
+            try (PreparedStatement pstmt = conn.prepareStatement("CREATE TABLE IF NOT EXISTS usuarios (id INT AUTO_INCREMENT, usuario VARCHAR(50), password VARCHAR(50), PRIMARY KEY (id))")) {
+                pstmt.executeUpdate();
+            }
+
+            // Insertar el usuario en la tabla
+            try (PreparedStatement pstmt = conn.prepareStatement("INSERT INTO usuarios (usuario, password) VALUES (?, ?)")) {
+                pstmt.setString(1, usuario);
+                pstmt.setString(2, password);
+                pstmt.executeUpdate();
+            }
+
+            JOptionPane.showMessageDialog(this, "Usuario registrado con éxito");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error al registrar usuario: " + ex.getMessage());
+        }
+    }//GEN-LAST:event_confirmarregistroActionPerformed
+
+    private void confirmariniciosesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmariniciosesionActionPerformed
+                // Cerrar la ventana actual
+                this.dispose();
+                
+                // Crear una instancia de la clase Admin
+                Admin ventanaAdmin = new Admin();
+                // Mostrar la ventana admin
+                ventanaAdmin.setVisible(true);
+    }//GEN-LAST:event_confirmariniciosesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,10 +234,9 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton confirmariniciosesion;
+    private javax.swing.JButton confirmarregistro;
     private javax.swing.JPasswordField confirmpasswordregister;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

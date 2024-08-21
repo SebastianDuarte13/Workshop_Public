@@ -11,6 +11,8 @@
 package form.menu;
 
 import javax.swing.JOptionPane;
+import form.menu.Login;
+
 
 //IMPORTACIONES DE ROLES
 import form.roles.application.CreateRolesUseCase;
@@ -35,6 +37,11 @@ import form.user.application.CreateUserUseCase;
 import form.user.domain.service.UserService;
 import form.user.infrastructure.in.UserController;
 import form.user.infrastructure.out.UserRepository;
+
+//IMPORTACIONES SURVEYS
+import form.surveys.application.CreateSurveysUseCase;
+import form.surveys.infrastructure.out.SurveysRepository;
+import form.surveys.infrastructure.out.in.SurveysController;
 
 public class Admin extends javax.swing.JFrame {
 
@@ -99,6 +106,11 @@ public class Admin extends javax.swing.JFrame {
         });
 
         surveys.setText("Surveys");
+        surveys.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                surveysActionPerformed(evt);
+            }
+        });
 
         user_roles.setText("User Roles");
         user_roles.addActionListener(new java.awt.event.ActionListener() {
@@ -123,6 +135,11 @@ public class Admin extends javax.swing.JFrame {
         response_question.setText("Response Questions");
 
         back.setText("Back (Login)");
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -219,6 +236,22 @@ public class Admin extends javax.swing.JFrame {
         UserController userController = new UserController(createUserUseCase, userService);
         userController.tabla_user();  
     }//GEN-LAST:event_usersActionPerformed
+
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        // Cerrar la ventana actual
+        this.dispose();
+
+        // Muestra Login
+        Login login = new Login();
+        login.setVisible(true);
+    }//GEN-LAST:event_backActionPerformed
+
+    private void surveysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_surveysActionPerformed
+        SurveysRepository surveysRepository = new SurveysRepository();
+        CreateSurveysUseCase createSurveysUseCase = new CreateSurveysUseCase(surveysRepository);
+        SurveysController SurveysController = new SurveysController(createSurveysUseCase, surveysRepository);
+        SurveysController.tabla_Surveys();
+    }//GEN-LAST:event_surveysActionPerformed
 
     /**
      * @param args the command line arguments

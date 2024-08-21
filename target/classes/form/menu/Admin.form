@@ -143,6 +143,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Surveys"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="surveysActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="user_roles">
       <Properties>
@@ -184,6 +187,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Back (Login)"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
