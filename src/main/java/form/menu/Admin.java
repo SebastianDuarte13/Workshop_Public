@@ -127,12 +127,32 @@ public class Admin extends javax.swing.JFrame {
         });
 
         questions.setText("Questions");
+        questions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                questionsActionPerformed(evt);
+            }
+        });
 
         response_options.setText("Response Options");
+        response_options.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                response_optionsActionPerformed(evt);
+            }
+        });
 
         subresponse_options.setText("Subresponse Options");
+        subresponse_options.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subresponse_optionsActionPerformed(evt);
+            }
+        });
 
         response_question.setText("Response Questions");
+        response_question.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                response_questionActionPerformed(evt);
+            }
+        });
 
         back.setText("Back (Login)");
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -213,7 +233,7 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_category_catalogActionPerformed
 
     private void chapterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chapterActionPerformed
-        // TODO add your handling code here:
+        // AQUI AGREGUE LO RELACIONADO CON CHAPTER
     }//GEN-LAST:event_chapterActionPerformed
 
     private void rolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolesActionPerformed
@@ -252,6 +272,22 @@ public class Admin extends javax.swing.JFrame {
         SurveysController SurveysController = new SurveysController(createSurveysUseCase, surveysRepository);
         SurveysController.tabla_Surveys();
     }//GEN-LAST:event_surveysActionPerformed
+
+    private void questionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_questionsActionPerformed
+        // AQUI AGREGUE LO RELACIONADO CON QUESTIONS
+    }//GEN-LAST:event_questionsActionPerformed
+
+    private void response_optionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_response_optionsActionPerformed
+        // AQUI AGREGUE LO RELACIONADO CON RESPONSE OPTIONS
+    }//GEN-LAST:event_response_optionsActionPerformed
+
+    private void subresponse_optionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subresponse_optionsActionPerformed
+        // AQUI AGREGUE LO RELACIONADO CON SUBRESPONSE OPTIONS
+    }//GEN-LAST:event_subresponse_optionsActionPerformed
+
+    private void response_questionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_response_questionActionPerformed
+        // AQUI AGREGUE LO RELACIONADO CON RESPONDE QUESTIONS
+    }//GEN-LAST:event_response_questionActionPerformed
 
     /**
      * @param args the command line arguments

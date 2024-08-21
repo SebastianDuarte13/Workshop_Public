@@ -167,21 +167,33 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Questions"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="questionsActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="response_options">
       <Properties>
         <Property name="text" type="java.lang.String" value="Response Options"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="response_optionsActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="subresponse_options">
       <Properties>
         <Property name="text" type="java.lang.String" value="Subresponse Options"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="subresponse_optionsActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="response_question">
       <Properties>
         <Property name="text" type="java.lang.String" value="Response Questions"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="response_questionActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="back">
       <Properties>

@@ -169,14 +169,11 @@ public class Login extends javax.swing.JFrame {
         }
 
         // Conectar con la base de datos
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydatabase", "myuser", "mypassword")) {
-            // Crear la tabla si no existe
-            try (PreparedStatement pstmt = conn.prepareStatement("CREATE TABLE IF NOT EXISTS usuarios (id INT AUTO_INCREMENT, usuario VARCHAR(50), password VARCHAR(50), PRIMARY KEY (id))")) {
-                pstmt.executeUpdate();
-            }
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydatabase", "campus2023", "campus2023")) {
+
 
             // Insertar el usuario en la tabla
-            try (PreparedStatement pstmt = conn.prepareStatement("INSERT INTO usuarios (usuario, password) VALUES (?, ?)")) {
+            try (PreparedStatement pstmt = conn.prepareStatement("INSERT INTO users (username, password) VALUES (?, ?)")) {
                 pstmt.setString(1, usuario);
                 pstmt.setString(2, password);
                 pstmt.executeUpdate();
@@ -191,7 +188,7 @@ public class Login extends javax.swing.JFrame {
     private void confirmariniciosesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmariniciosesionActionPerformed
                 // Cerrar la ventana actual
                 this.dispose();
-                
+
                 // Crear una instancia de la clase Admin
                 Admin ventanaAdmin = new Admin();
                 // Mostrar la ventana admin
