@@ -23,7 +23,7 @@ public class QuestionController {
         while (true) {
             String[] options = { "Añadir Question", "Editar Question", "Mostrar Question", "Eliminar Question",
                     "Salir al menú anterior" };
-            int choice = JOptionPane.showOptionDialog(null, "Seleccione una opción:", "Gestión de Capítulos",
+            int choice = JOptionPane.showOptionDialog(null, "Seleccione una opción:", "Gestión de Preguntas",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
 
             switch (choice) {

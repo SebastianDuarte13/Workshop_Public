@@ -3,7 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package form.menu;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
+import form.infrastructure.config.DatabaseConfig;
 import form.menu.Admin;
 /**
  *
@@ -162,6 +169,12 @@ public class Login extends javax.swing.JFrame {
         String password = new String(passwordregister.getPassword());
         String confirmPassword = new String(confirmpasswordregister.getPassword());
 
+        // Verificar si los campos están vacíos
+        if (usuario.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos");
+            return;
+        }
+
         // Validar que las contraseñas coincidan
         if (!password.equals(confirmPassword)) {
             JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden");
@@ -169,7 +182,7 @@ public class Login extends javax.swing.JFrame {
         }
 
         // Conectar con la base de datos
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydatabase", "campus2023", "campus2023")) {
+        try (Connection conn = DatabaseConfig.getConnection()) {
 
 
             // Insertar el usuario en la tabla
@@ -186,13 +199,35 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmarregistroActionPerformed
 
     private void confirmariniciosesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmariniciosesionActionPerformed
-                // Cerrar la ventana actual
-                this.dispose();
+        // Capturar los datos del usuario
+        String usuario = usuarioingresar.getText();
+        String password = new String(passwordingresar.getPassword());
 
-                // Crear una instancia de la clase Admin
-                Admin ventanaAdmin = new Admin();
-                // Mostrar la ventana admin
-                ventanaAdmin.setVisible(true);
+        if (usuario.isEmpty() || password.isEmpty()x) {
+            JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos");
+            return;
+        }
+
+        // Conectar con la base de datos
+        try (Connection conn = DatabaseConfig.getConnection()) {
+            // Buscar el usuario en la tabla
+            try (PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?")) {
+                pstmt.setString(1, usuario);
+                pstmt.setString(2, password);
+                ResultSet rs = pstmt.executeQuery();
+
+                if (rs.next()) {
+                    // Entrar al menu de admin
+                    this.dispose();
+                    Admin ventanaAdmin = new Admin();
+                    ventanaAdmin.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
+                }
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error al ingresar: " + ex.getMessage());
+        }  
     }//GEN-LAST:event_confirmariniciosesionActionPerformed
 
     /**
