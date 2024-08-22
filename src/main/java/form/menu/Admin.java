@@ -61,6 +61,12 @@ import form.responseoptions.domain.service.ResOptionService;
 import form.responseoptions.infrastructure.in.ResOptionController;
 import form.responseoptions.infrastructure.out.ResOptionRepository;
 
+//import subrespuestaopciones
+import form.subresponse_options.application.CreateSubResOpUseCase;
+import form.subresponse_options.domain.service.SubResOpService;
+import form.subresponse_options.infrastructure.out.SubResOpRepository;
+import form.subresponse_options.infrastructure.in.SubResOpController;
+
 public class Admin extends javax.swing.JFrame {
 
     /**
@@ -309,7 +315,10 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_response_optionsActionPerformed
 
     private void subresponse_optionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subresponse_optionsActionPerformed
-        // AQUI AGREGUE LO RELACIONADO CON SUBRESPONSE OPTIONS
+        SubResOpService subResOpService = new SubResOpRepository(); // Asegúrate de que SubResOpRepository implementa SubResOpService
+        CreateSubResOpUseCase createSubResOpUseCase = new CreateSubResOpUseCase(subResOpService);
+        SubResOpController subResOpController = new SubResOpController(createSubResOpUseCase, subResOpService); 
+        subResOpController.tabla_SubResOp();
     }//GEN-LAST:event_subresponse_optionsActionPerformed
 
     private void response_questionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_response_questionActionPerformed
