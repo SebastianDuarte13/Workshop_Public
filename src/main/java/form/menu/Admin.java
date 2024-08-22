@@ -67,6 +67,14 @@ import form.subresponse_options.domain.service.SubResOpService;
 import form.subresponse_options.infrastructure.out.SubResOpRepository;
 import form.subresponse_options.infrastructure.in.SubResOpController;
 
+
+// import responsequestion
+import form.response_question.application.CreateRespondeQuestionUseCase;
+import form.response_question.domain.service.RespondeQuestionService;
+import form.response_question.infrastructure.in.RespondeQuestionController;
+import form.response_question.infrastructure.out.RespondeQuestionRepository;
+
+
 public class Admin extends javax.swing.JFrame {
 
     /**
@@ -322,7 +330,10 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_subresponse_optionsActionPerformed
 
     private void response_questionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_response_questionActionPerformed
-        // AQUI AGREGUE LO RELACIONADO CON RESPONDE QUESTIONS
+        RespondeQuestionService respondeQuestionService = new RespondeQuestionRepository();
+        CreateRespondeQuestionUseCase createRespondeQuestionUseCase = new CreateRespondeQuestionUseCase(respondeQuestionService);
+        RespondeQuestionController respondeQuestionController = new RespondeQuestionController(createRespondeQuestionUseCase, respondeQuestionService);
+        respondeQuestionController.tabla_RespondeQuestion();
     }//GEN-LAST:event_response_questionActionPerformed
 
     /**

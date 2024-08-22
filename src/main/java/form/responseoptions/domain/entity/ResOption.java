@@ -25,6 +25,10 @@ public class ResOption {
         this.question_id = question_id;
     }
 
+    public ResOption(int response_id, int subresponses_id, String responsetext) {
+        //TODO Auto-generated constructor stub
+    }
+
     public int getId() {
         return id;
     }

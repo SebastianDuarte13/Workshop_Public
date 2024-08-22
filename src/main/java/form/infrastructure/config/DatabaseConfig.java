@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 //----para usar en casa---
 
-/*
+
 public class DatabaseConfig {
 private static final String URL = "jdbc:mysql://localhost:3306/public";
     private static final String USER = "root";
@@ -16,10 +16,10 @@ private static final String URL = "jdbc:mysql://localhost:3306/public";
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 } 
-*/
+
 
 //---para usar en campus--
-
+/*
 public class DatabaseConfig {
     private static final String URL = "jdbc:mysql://localhost:3306/public";
         private static final String USER = "campus2023";
@@ -29,7 +29,7 @@ public class DatabaseConfig {
             return DriverManager.getConnection(URL, USER, PASSWORD);
         }
 }
-
+*/
 
 //----para usar Ospina---
 /*
