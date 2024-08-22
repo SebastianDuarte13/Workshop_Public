@@ -55,6 +55,12 @@ import form.chapter.domain.service.ChapterService;
 import form.chapter.infrastructure.in.ChapterController;
 import form.chapter.infrastructure.out.ChapterRepository;
 
+//import respuestas preguntas
+import form.responseoptions.application.CreateResOptionUseCase;
+import form.responseoptions.domain.service.ResOptionService;
+import form.responseoptions.infrastructure.in.ResOptionController;
+import form.responseoptions.infrastructure.out.ResOptionRepository;
+
 public class Admin extends javax.swing.JFrame {
 
     /**
@@ -296,7 +302,10 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_questionsActionPerformed
 
     private void response_optionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_response_optionsActionPerformed
-        // AQUI AGREGUE LO RELACIONADO CON RESPONSE OPTIONS
+        ResOptionService resOptionService = new ResOptionRepository(); // Implementación del servicio
+        CreateResOptionUseCase createResOptionUseCase = new CreateResOptionUseCase(resOptionService);
+        ResOptionController resOptionController = new ResOptionController(createResOptionUseCase, resOptionService);
+        resOptionController.tabla_ResOption();
     }//GEN-LAST:event_response_optionsActionPerformed
 
     private void subresponse_optionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subresponse_optionsActionPerformed
