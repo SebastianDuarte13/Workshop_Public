@@ -2,7 +2,9 @@ INSERT INTO roles (name) VALUES ('Administrador');
 INSERT INTO roles (name) VALUES ('Usuario');
 
 INSERT INTO users (enabled, username, password) VALUES (TRUE, 'juan_perez', 'contraseña123');
-INSERT INTO users (enabled, username, password) VALUES (FALSE, 'ana_lopez', 'clave_segura');
+INSERT INTO users (enabled, username, password) VALUES (TRUE, 'ana_lopez', 'clave_segura');
+INSERT INTO users (enabled, username, password) VALUES (FALSE, 'samuel', 'rokoopercp');
+INSERT INTO users (enabled, username, password) VALUES (FALSE, 'duartebby', '123456');
 
 INSERT INTO category_catalog (created_at, updated_at, name) VALUES ('2024-08-16', '2024-08-16', 'Electrónica');
 INSERT INTO category_catalog (created_at, updated_at, name) VALUES ('2024-08-16', '2024-08-16', 'Libros');
