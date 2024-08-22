@@ -186,7 +186,7 @@ public class Login extends javax.swing.JFrame {
 
 
             // Insertar el usuario en la tabla
-            try (PreparedStatement pstmt = conn.prepareStatement("INSERT INTO users (username, password) VALUES (?, ?)")) {
+            try (PreparedStatement pstmt = conn.prepareStatement("INSERT INTO users (enabled,  username, password) VALUES (1, ?, ?)")) {
                 pstmt.setString(1, usuario);
                 pstmt.setString(2, password);
                 pstmt.executeUpdate();
@@ -203,7 +203,7 @@ public class Login extends javax.swing.JFrame {
         String usuario = usuarioingresar.getText();
         String password = new String(passwordingresar.getPassword());
 
-        if (usuario.isEmpty() || password.isEmpty()x) {
+        if (usuario.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos");
             return;
         }
@@ -217,10 +217,17 @@ public class Login extends javax.swing.JFrame {
                 ResultSet rs = pstmt.executeQuery();
 
                 if (rs.next()) {
-                    // Entrar al menu de admin
-                    this.dispose();
-                    Admin ventanaAdmin = new Admin();
-                    ventanaAdmin.setVisible(true);
+                    // Verificar si el usuario está activo
+                    boolean enabled = rs.getBoolean("enabled");
+                    if (enabled) {
+                        // Entra a las preguntas
+                        JOptionPane.showMessageDialog(this, "Hola eres un usuario");
+                    } else {
+                        // El usuario es administrador e ingresa al menu de admin
+                        this.dispose();
+                        Admin ventanaAdmin = new Admin();
+                        ventanaAdmin.setVisible(true);
+                    }
                 } else {
                     JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
                 }
