@@ -8,6 +8,12 @@ package form.menu;
  *
  * @author camper
  */
+
+//IMPORTACIONES DEL CUESTIONARIO SOBRE TI
+import capitulouno.sobreti.application.CreateSobretiUseCase;
+import capitulouno.sobreti.infrastructure.in.SobretiController;
+import capitulouno.sobreti.infrastructure.out.SobretiRepository;
+
 public class Catalogo extends javax.swing.JFrame {
 
     /**
@@ -27,8 +33,8 @@ public class Catalogo extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        sobreti = new javax.swing.JButton();
+        cuestionarioinformatico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -36,11 +42,22 @@ public class Catalogo extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 0, 51));
         jLabel1.setText("Cap 1. CATALOGO");
 
-        jButton1.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        jButton1.setText("Sobre ti");
+        sobreti.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        sobreti.setText("Sobre ti");
+        sobreti.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        sobreti.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sobretiActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        jButton2.setText("Cuestionario Informatico");
+        cuestionarioinformatico.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        cuestionarioinformatico.setText("Cuestionario Informatico");
+        cuestionarioinformatico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cuestionarioinformaticoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -50,8 +67,8 @@ public class Catalogo extends javax.swing.JFrame {
                 .addGap(80, 80, 80)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(sobreti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cuestionarioinformatico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -60,14 +77,25 @@ public class Catalogo extends javax.swing.JFrame {
                 .addGap(80, 80, 80)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(sobreti)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(cuestionarioinformatico)
                 .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void sobretiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sobretiActionPerformed
+        SobretiRepository sobretiRepository = new SobretiRepository();
+        CreateSobretiUseCase createSobretiUseCase = new CreateSobretiUseCase(sobretiRepository);
+        SobretiController sobretiController = new SobretiController(createSobretiUseCase, sobretiRepository);
+        sobretiController.addSobreti();
+    }//GEN-LAST:event_sobretiActionPerformed
+
+    private void cuestionarioinformaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuestionarioinformaticoActionPerformed
+        // aqui va todo lo del cuestionario informatico
+    }//GEN-LAST:event_cuestionarioinformaticoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -105,8 +133,8 @@ public class Catalogo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton cuestionarioinformatico;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton sobreti;
     // End of variables declaration//GEN-END:variables
 }
